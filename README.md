@@ -22,7 +22,7 @@ shell: it is the same stock ramdisk with Skyward's files already in it.
 ```
 curl -LO https://github.com/kirklin/skyward/releases/download/v0.3.1/skyward-v0.3.1-nezha-OS4.0.4.0.XPACNXM.zip
 unzip skyward-v0.3.1-nezha-OS4.0.4.0.XPACNXM.zip
-./mk.sh 0.3.12 skyward-v0.3.1-nezha-OS4.0.4.0.XPACNXM.img
+./mk.sh 0.3.15 skyward-v0.3.15-nezha-OS4.0.4.0.XPACNXM.img
 ```
 
 The phone's own dump of its recovery partition
