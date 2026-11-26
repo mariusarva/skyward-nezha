@@ -1,5 +1,11 @@
 # Skyward for the Xiaomi 17 Ultra (nezha)
 
+> 0.5.9 起：二进制与 17（pudding）、17 Max（byron）两条线是同一份源码，Root 管理、
+> 模块管理、Kinaxie 的服务与合并修复都在里面；差别只在这份 `device.toml`。
+> Root 的素材（ksud、KMI 模块、两个管理器 APK）不随包分发，写入时从 GitHub 取，需要联网。
+> `mk.sh` 2026-11-26 修过一处：原厂镜像自己的 vbmeta 在「它自己的」页对齐位置上，
+> ramdisk 一变长就不能拿新地址去读，否则打出来的镜像里没有 AVB0。
+
 The 17 Ultra is one of the phones upstream Skyward names, and the configuration
 upstream ships for it is the one used here — nothing in it was changed apart
 from turning its own online update off.

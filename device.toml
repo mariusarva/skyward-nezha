@@ -154,3 +154,16 @@ logs = [
     "/data/vendor/tombstones",
     "/data/vendor/wlan_logs",
 ]
+
+# 表情字体：页面上的 emoji 从 /skyward 下取，和 17 / 17 Max 那两条线同一份（2026-11-26 补）。
+[[file]]
+path = "skyward/NotoColorEmoji.ttf"
+source = "devices/nezha/files/skyward/NotoColorEmoji.ttf"
+
+[[file]]
+path = "skyward/NotoColorEmojiFlags.ttf"
+source = "devices/nezha/files/skyward/NotoColorEmojiFlags.ttf"
+
+[[file]]
+path = "skyward/NotoColorEmoji-OFL.txt"
+source = "devices/nezha/files/skyward/NotoColorEmoji-OFL.txt"
