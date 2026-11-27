@@ -9,10 +9,18 @@
 # produces an image whose secure element service dies on its libraries and whose
 # data partition therefore never opens (2026-11-17).
 set -e
-REL="$1"; STOCK="$2"; NAME=${3:-skyward-nezha-$REL-OS4.0.3.0.XAFCNXM.img}
+REL="$1"; STOCK="$2"
+# 2026-11-27：与 byron 同一处修法——默认产物名改绝对路径（脚本 cd 进 mktemp，
+# 相对名会被 trap 删掉），SRC 默认指到构建树并核一眼 Cargo.toml。
+NAME=${3:-/storage/emulated/0/MT2/mcp/产物/测试版/skyward-nezha-$REL-OS4.0.3.0.XAFCNXM.img}
+case "$NAME" in
+    /*) : ;;
+    *) echo "产物名必须是绝对路径（脚本在 mktemp 目录里打包，相对名会被删）：$NAME" >&2; exit 1 ;;
+esac
 [ -f "$STOCK" ] || { echo "no stock recovery at $STOCK" >&2; exit 1; }
 HERE=$(cd "$(dirname "$0")" && pwd)
-SRC=${SKYWARD_SRC:-$HERE/../..}
+SRC=${SKYWARD_SRC:-/workspace/项目/第三方REC-pudding/构建/skyward-0.5.0}
+[ -f "$SRC/Cargo.toml" ] || { echo "$SRC 不是 cargo 工作区，设 SKYWARD_SRC 指到构建树" >&2; exit 1; }
 export TZ=Asia/Shanghai
 WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
 cd "$SRC"
